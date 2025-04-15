@@ -14,7 +14,7 @@ export default function PasswordGenerator() {
     if (numberAllowed) string += "123456789";
     if (charAllowed) string += "!@#$%^&*()_+[]{}|;:',.<>?/~`";
 
-    for (let i = 1; i < length; i++) {
+    for (let i = 0; i < length; i++) {
       let char = Math.floor(Math.random() * string.length + 1);
       pass += string.charAt(char);
     }
@@ -22,7 +22,7 @@ export default function PasswordGenerator() {
   }, [length, numberAllowed, charAllowed, setPassword]);
   useEffect(() => {
     PasswordGenerator();
-  }, [length, PasswordGenerator, numberAllowed, setCharAllowed]);
+  }, [length, PasswordGenerator, numberAllowed, charAllowed]);
 
   const copyPass = useCallback(() => {
     passwordRef.current?.select();
